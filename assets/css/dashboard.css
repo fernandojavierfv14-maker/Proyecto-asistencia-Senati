@@ -1,0 +1,87 @@
+/* Este archivo también lo usa asistencia.html (barra azul, panel blanco, tarjetas y menú) */
+
+* { margin: 0; padding: 0; box-sizing: border-box; } /* Quita márgenes; border-box = el padding y el borde NO agrandan el ancho */
+body { background: #0759d3; font-family: Arial, sans-serif; } /* Fondo azul (se ve detrás de las esquinas redondas) y tipo de letra */
+button { border: 0; background: none; cursor: pointer; } /* Botón sin estilo del navegador; cursor: pointer = manito al pasar */
+.oculto { display: none; } /* Clase que usa el JavaScript para esconder o mostrar el menú */
+
+/* ----- Barra azul superior ----- */
+header { /* Contiene hamburguesa, título y perfil */
+  height: 66px; /* Alto de la barra */
+  padding: 0 24px; /* Espacio a los lados */
+  display: grid; /* Activa Grid: acomoda en columnas */
+  grid-template-columns: 1fr auto 1fr; /* 3 columnas: izquierda y derecha iguales, el título al centro */
+  align-items: center; /* Centra de arriba a abajo */
+  color: #ffffff; /* Letra blanca */
+}
+header button, header a { justify-self: start; } /* Hamburguesa y flecha: pegadas a la izquierda de su columna */
+header button img { width: 30px; } /* Tamaño de la hamburguesa */
+header > img { width: 40px; justify-self: end; } /* Perfil: tamaño y pegado a la derecha */
+h1 { font-family: Georgia, serif; font-size: 28px; } /* Título YONEX con letra de serif */
+
+/* ----- Panel blanco ----- */
+main { /* Zona de contenido */
+  background: #ffffff; /* Fondo blanco */
+  border-radius: 30px 30px 0 0; /* Redondea solo las esquinas de arriba */
+  min-height: calc(100vh - 66px); /* Ocupa lo que queda de pantalla (alto total menos la barra) */
+  padding: 25px 20px; /* Espacio interior */
+}
+
+/* ----- Tarjetas (también las filas de la lista) ----- */
+.tarjeta, li { border: 3px solid #e3e3e3; border-radius: 10px; background: #ffffff; } /* Borde gris claro y esquinas redondeadas */
+.tarjeta { /* Tarjeta con ícono a la izquierda y dos textos a la derecha */
+  display: grid; /* Activa Grid */
+  grid-template-columns: auto 1fr; /* 2 columnas: ícono (auto) y textos (el resto) */
+  align-items: center; /* Centra de arriba a abajo */
+  column-gap: 15px; /* Espacio entre ícono y textos */
+  padding: 10px 15px; /* Espacio interior */
+  max-width: 340px; /* Ancho máximo */
+  margin: 0 auto 20px; /* Centrada (auto a los lados) y 20px de espacio abajo */
+}
+.tarjeta img { grid-row: span 2; width: 50px; } /* El ícono ocupa 2 filas (la altura de los dos textos) */
+h2 { font-size: 16px; } /* Título de la tarjeta */
+.tarjeta p { font-size: 12px; } /* Subtítulo pequeño */
+b { font-size: 16px; } /* Nombres en negrita */
+.tarjeta span, li span, #usuario span { color: #777777; font-weight: bold; font-size: 13px; } /* Cargo: gris y en negrita */
+
+/* ----- Lista de empleados ----- */
+ul { list-style: none; display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 340px; margin: 0 auto; } /* Sin viñetas; una columna; centrada */
+li { display: flex; align-items: center; gap: 12px; padding: 8px 12px; cursor: pointer; } /* Cada fila: ícono, textos y flecha en línea */
+li img { width: 40px; } /* Tamaño del ícono del empleado */
+li img:last-child { width: 20px; margin-left: auto; } /* La flecha: pequeña y pegada a la derecha */
+li p { flex: 1; } /* Los textos ocupan el espacio que sobra */
+li b, li span { display: block; } /* Nombre y cargo uno debajo del otro */
+#cabecera { display: none; } /* Títulos de la tabla: ocultos en celular y tablet */
+
+/* ----- Menú lateral ----- */
+#fondo { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5); z-index: 1; } /* fixed = fijo en pantalla; inset: 0 = cubre todo; rgba = negro al 50% */
+nav { /* Panel blanco del menú */
+  position: fixed; /* Fijo: no se mueve al hacer scroll */
+  top: 0; bottom: 0; left: 0; /* Pegado arriba, abajo y a la izquierda */
+  width: 65%; max-width: 380px; /* Ocupa el 65% de la pantalla, máximo 380px */
+  background: #ffffff; /* Fondo blanco */
+  padding: 25px; /* Espacio interior */
+  z-index: 2; /* Se dibuja encima del fondo oscuro */
+  overflow: auto; /* Si no cabe, aparece scroll */
+}
+nav > img { display: block; width: 80px; margin: 0 auto; } /* Logo centrado (margin: auto a los lados) */
+nav h2 { text-align: center; font-size: 26px; margin-bottom: 25px; } /* Nombre centrado */
+#usuario { display: grid; grid-template-columns: 50px 1fr; align-items: center; column-gap: 12px; margin-bottom: 25px; } /* Avatar a la izquierda, nombre y cargo a la derecha */
+#usuario img { grid-row: span 2; width: 50px; } /* El avatar ocupa 2 filas */
+nav a { display: flex; align-items: center; gap: 15px; padding: 12px; border-radius: 20px; color: #000000; font-weight: bold; text-decoration: none; margin-bottom: 5px; } /* Enlaces con ícono: sin subrayado */
+nav a img { width: 26px; } /* Tamaño de los íconos del menú */
+.activo { background: #a9bdea; color: #2a3b78; } /* Opción actual: fondo azul claro */
+hr { border: 0; border-top: 1px solid #777777; margin: 20px 0; } /* Línea separadora */
+
+/* ===== TABLET (desde 700px): la lista pasa a 2 columnas ===== */
+@media (min-width: 700px) { /* Solo si la pantalla mide 700px o más */
+  .tarjeta { max-width: 400px; } /* Tarjeta un poco más ancha */
+  ul { grid-template-columns: 1fr 1fr; max-width: 760px; } /* 2 columnas iguales */
+}
+
+/* ===== ESCRITORIO (desde 1100px): la lista parece tabla ===== */
+@media (min-width: 1100px) { /* Solo si la pantalla mide 1100px o más */
+  ul { grid-template-columns: 1fr; gap: 4px; max-width: 670px; } /* Una sola columna de filas */
+  #cabecera, li p { display: grid; grid-template-columns: 1fr 1fr; align-items: center; } /* Nombre y cargo en 2 columnas, como tabla, centrados de arriba a abajo */
+  #cabecera { max-width: 670px; margin: 0 auto 4px; padding: 14px 47px 14px 67px; background: #d9d9d9; border-radius: 20px 20px 0 0; } /* Barra gris de títulos, alineada con las filas */
+}

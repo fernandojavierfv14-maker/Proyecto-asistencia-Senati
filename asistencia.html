@@ -1,0 +1,65 @@
+<!DOCTYPE html> <!-- Documento HTML5 -->
+<html lang="es"> <!-- Idioma español -->
+<head>
+  <meta charset="UTF-8"> <!-- Permite tildes y la ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta la web al ancho del celular -->
+  <title>YONEX - Registrar asistencia</title> <!-- Texto de la pestaña -->
+  <link rel="stylesheet" href="assets/css/dashboard.css"> <!-- Estilos compartidos: barra azul, panel, tarjetas y menú -->
+  <link rel="stylesheet" href="assets/css/asistencia.css"> <!-- Estilos propios de esta pantalla (van después para poder cambiar a los anteriores) -->
+</head>
+<body>
+  <header> <!-- Barra azul superior -->
+    <a id="atras" href="dashboard.html"><img src="assets/image/atras.svg" alt="Volver"></a> <!-- Flecha para volver: solo se ve en celular -->
+    <button id="abrirMenu"><img src="assets/image/hamburguesa.svg" alt="Menu"></button> <!-- Hamburguesa: solo en tablet y escritorio -->
+    <h1>YONEX</h1> <!-- Nombre del sistema -->
+    <img src="assets/image/usuario-perfil.png" alt="Perfil"> <!-- Perfil: solo en tablet y escritorio -->
+  </header>
+
+  <main> <!-- Panel blanco -->
+    <section> <!-- Mitad izquierda: datos del empleado -->
+      <article class="tarjeta"> <!-- Tarjeta del empleado elegido -->
+        <img src="assets/image/usuario-azul.png" alt=""> <!-- Avatar -->
+        <b id="nombre">Yasuo Reyes</b> <!-- Nombre: asistencia.js lo cambia por el empleado elegido -->
+        <span id="cargo">Operario</span> <!-- Cargo: también lo cambia el JS -->
+      </article>
+      <p id="fecha"> <!-- Cuadro de fecha y hora -->
+        <img src="assets/image/calendario.svg" alt=""> <!-- Ícono de calendario -->
+        <span id="dia">Hoy, 15 oct, 2026</span> <!-- Fecha: la actualiza el JS -->
+        <img src="assets/image/reloj.svg" alt=""> <!-- Ícono de reloj -->
+        <span id="hora">4:45 p.m.</span> <!-- Hora: la actualiza el JS cada segundo -->
+      </p>
+      <form id="formCodigo"> <!-- Registro con código: solo se ve en tablet y escritorio -->
+        <input id="codigo" placeholder="Ingrese su codigo de identificacion de la empresa"> <!-- Campo del código; con Enter se envía -->
+        <aside><img src="assets/image/info.svg" alt=""><span id="avisoCodigo">Ingrese bien el codigo de identificacion o puede tomar foto de su rostro</span></aside> <!-- Aviso azul -->
+      </form>
+    </section>
+
+    <section id="camara"> <!-- Mitad derecha: cámara -->
+      <figure id="visor"> <!-- Recuadro donde se ve la cámara -->
+        <video id="video" class="oculto" autoplay playsinline></video> <!-- Muestra la cámara en vivo; empieza escondido -->
+        <img id="foto" class="oculto" alt="Foto tomada"> <!-- Muestra la foto tomada; empieza escondida -->
+        <img id="esquinas" src="assets/image/esquinas.svg" alt=""> <!-- Las 4 esquinas blancas del recuadro -->
+      </figure>
+      <button id="botonCamara"><img src="assets/image/camara.png" alt="Tomar foto"></button> <!-- Botón de la cámara: enciende y toma la foto -->
+      <aside><img src="assets/image/info.svg" alt=""><span id="avisoCamara">Coloca tu rostro en el centro del recuadro</span></aside> <!-- Aviso azul -->
+    </section>
+  </main>
+
+  <canvas id="lienzo" class="oculto"></canvas> <!-- Hoja invisible donde se "dibuja" la foto antes de guardarla -->
+
+  <div id="fondo" class="oculto"></div> <!-- Fondo oscuro detrás del menú -->
+  <nav class="oculto"> <!-- Menú lateral (igual que en dashboard.html) -->
+    <img src="assets/image/logo-circulo.png" alt="Logo YONEX"> <!-- Logo del gato -->
+    <h2>YONEX</h2> <!-- Nombre -->
+    <p id="usuario"><img src="assets/image/usuario-azul.png" alt=""><b>Yasuo Reyes</b><span>Operario</span></p> <!-- Usuario que inició sesión -->
+    <a href="dashboard.html"><img src="assets/image/inicio.svg" alt="">Inicio</a> <!-- Enlace a Inicio -->
+    <a href="asistencia.html" class="activo"><img src="assets/image/reloj.svg" alt="">Asistencias</a> <!-- Enlace a Asistencias (resaltado) -->
+    <a href="#" id="reporte"><img src="assets/image/reporte.svg" alt="">Reporte de asistencias</a> <!-- Muestra las asistencias guardadas -->
+    <hr> <!-- Línea separadora -->
+    <a href="login.html" id="salir"><img src="assets/image/salir.svg" alt="">Cerrar sesion</a> <!-- Cierra la sesión -->
+  </nav>
+
+  <script src="assets/js/menu.js"></script> <!-- JavaScript del menú (el mismo de dashboard.html) -->
+  <script src="assets/js/asistencia.js"></script> <!-- JavaScript de esta pantalla -->
+</body>
+</html>

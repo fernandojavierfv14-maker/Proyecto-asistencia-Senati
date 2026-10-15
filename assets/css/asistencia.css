@@ -1,0 +1,39 @@
+/* Se usa junto con dashboard.css: aquí solo van los estilos propios de esta pantalla */
+
+/* ===== CELULAR (diseño base): todo apilado ===== */
+#abrirMenu, header > img { display: none; } /* En celular se oculta la hamburguesa y el perfil (en Figma solo hay flecha) */
+#atras img { width: 26px; } /* Tamaño de la flecha de volver */
+
+main { display: flex; flex-direction: column; align-items: center; gap: 18px; } /* Las dos secciones, una debajo de la otra y centradas */
+section { display: flex; flex-direction: column; align-items: center; gap: 18px; width: 100%; } /* Dentro de cada sección: elementos apilados y centrados */
+section > * { max-width: 380px; } /* Ningún elemento pasa de 380px de ancho */
+.tarjeta { width: 100%; max-width: 380px; margin: 0; } /* La tarjeta del empleado mide lo mismo que los demás elementos */
+
+#fecha { display: flex; align-items: center; justify-content: space-around; width: 100%; padding: 8px 15px; border: 3px solid #e3e3e3; border-radius: 30px; font-size: 13px; } /* Cuadro redondo con calendario, fecha, reloj y hora */
+#fecha img { width: 24px; } /* Tamaño de los íconos de calendario y reloj */
+
+#formCodigo { display: none; } /* El campo del código no se ve en celular */
+#codigo { width: 100%; padding: 16px 20px; border: 0; border-radius: 30px; background: #d9d9d9; font: bold 12px Arial; } /* Campo gris redondo; font = negrita, 12px, Arial */
+
+#visor { position: relative; width: 210px; aspect-ratio: 1; border-radius: 15px; overflow: hidden; background: #373e4d url(../image/persona-blanca.svg) center / 65% no-repeat; } /* Recuadro cuadrado oscuro con la silueta blanca; relative = sus hijos se colocan dentro de él; aspect-ratio: 1 = alto igual al ancho */
+#visor video, #visor img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; } /* Video, foto y esquinas se apilan ocupando todo el recuadro; cover = llena sin deformar */
+#botonCamara img { width: 60px; } /* Tamaño del botón de la cámara */
+
+aside { display: flex; align-items: center; gap: 12px; width: 100%; padding: 10px 15px; background: #aed2ee; border: 3px solid #dce6f0; border-radius: 15px; font-size: 12px; font-weight: bold; } /* Aviso azul claro con ícono y texto */
+aside img { width: 24px; } /* Tamaño del ícono de información */
+
+/* ===== TABLET (desde 700px): dos mitades ===== */
+@media (min-width: 700px) { /* Solo si la pantalla mide 700px o más */
+  #atras { display: none; } /* Ya no se usa la flecha de volver */
+  #abrirMenu { display: block; } /* Aparece la hamburguesa */
+  header > img { display: block; } /* Aparece el perfil */
+  main { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; gap: 0; } /* Dos columnas iguales: datos a la izquierda, cámara a la derecha; stretch = las dos llegan hasta abajo */
+  #camara { border-left: 3px solid #000000; } /* Línea negra que divide las dos mitades */
+  #formCodigo { display: flex; flex-direction: column; gap: 18px; width: 100%; } /* Ahora sí se ve el campo del código */
+  #visor { width: 230px; border-radius: 50%; } /* El recuadro se vuelve un círculo (50% de radio) */
+}
+
+/* ===== ESCRITORIO (desde 1100px): recuadro más grande ===== */
+@media (min-width: 1100px) { /* Solo si la pantalla mide 1100px o más */
+  #visor { width: 300px; } /* Círculo más grande */
+}

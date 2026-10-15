@@ -1,0 +1,31 @@
+<!DOCTYPE html> <!-- Dice que es un documento HTML5 -->
+<html lang="es"> <!-- Raíz de la página; lang="es" = idioma español -->
+<head> <!-- Información de la página que no se ve en pantalla -->
+  <meta charset="UTF-8"> <!-- Permite escribir tildes y la ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace que la web se adapte al ancho del celular -->
+  <title>YONEX - Iniciar sesion</title> <!-- Texto que sale en la pestaña del navegador -->
+  <link rel="icon" href="assets/image/logo-circulo.png" type="image/png">
+  <link rel="stylesheet" href="assets/css/login.css"> <!-- Conecta el archivo de estilos (CSS) -->
+</head>
+<body> <!-- Todo lo que se ve en pantalla -->
+  <main> <!-- Contenedor principal: ocupa toda la pantalla -->
+    <header> <!-- Logo pequeño: solo se ve en celular -->
+      <img src="assets/image/logo-circulo.png" alt="Logo YONEX"> <!-- Imagen del gato espartano; alt = texto si la imagen no carga -->
+      <h2>YONEX</h2> <!-- Nombre del sistema -->
+    </header>
+    <section> <!-- Tarjeta lila -->
+      <img id="logoGrande" src="assets/image/logo-poster.jpg" alt="Logo YONEX"> <!-- Logo grande: solo se ve en tablet y escritorio -->
+      <form id="formLogin"> <!-- Formulario: al enviarlo (botón INGRESAR) se activa login.js -->
+        <h1>INICIAR SESION</h1> <!-- Título principal -->
+        <p>Ingrese sus credenciales:</p> <!-- Texto de ayuda -->
+        <input type="email" id="correo" placeholder="Correo electronico"> <!-- Campo del correo; placeholder = texto gris de ayuda -->
+        <label for="clave">Contraseña:</label> <!-- Etiqueta: solo se ve en escritorio; for="clave" la une al campo de abajo -->
+        <input type="password" id="clave" placeholder="Contraseña"> <!-- Campo de contraseña: muestra puntos en vez de letras -->
+        <p id="mensaje"></p> <!-- Aquí JavaScript escribe el aviso de error -->
+        <button>INGRESAR</button> <!-- Botón que envía el formulario -->
+      </form>
+    </section>
+  </main>
+  <script src="assets/js/login.js"></script> <!-- Conecta el JavaScript; va al final para que el HTML ya exista -->
+</body>
+</html>

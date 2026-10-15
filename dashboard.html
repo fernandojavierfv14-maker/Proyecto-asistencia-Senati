@@ -1,0 +1,42 @@
+<!DOCTYPE html> <!-- Documento HTML5 -->
+<html lang="es"> <!-- Idioma español -->
+<head>
+  <meta charset="UTF-8"> <!-- Permite tildes y la ñ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Adapta la web al ancho del celular -->
+  <title>YONEX - Empleados</title> <!-- Texto de la pestaña -->
+  <link rel="stylesheet" href="assets/css/dashboard.css"> <!-- Conecta los estilos -->
+</head>
+<body>
+  <header> <!-- Barra azul superior -->
+    <button id="abrirMenu"><img src="assets/image/hamburguesa.svg" alt="Menu"></button> <!-- Botón hamburguesa: abre el menú -->
+    <h1>YONEX</h1> <!-- Nombre del sistema -->
+    <img src="assets/image/usuario-perfil.png" alt="Perfil"> <!-- Ícono de perfil -->
+  </header>
+
+  <main> <!-- Panel blanco con el contenido -->
+    <section class="tarjeta"> <!-- Tarjeta "Asistencias" -->
+      <img src="assets/image/avatar-asistencias.png" alt=""> <!-- Ícono de la tarjeta -->
+      <h2>Asistencias</h2> <!-- Título de la tarjeta -->
+      <p>Selecciona un empleado</p> <!-- Subtítulo -->
+    </section>
+
+    <p id="cabecera"><b>Empleado</b><b>Cargo</b></p> <!-- Títulos de la tabla: solo se ven en escritorio -->
+    <ul id="lista"></ul> <!-- Lista de empleados: dashboard.js la llena -->
+  </main>
+
+  <div id="fondo" class="oculto"></div> <!-- Fondo oscuro detrás del menú; class="oculto" = empieza escondido -->
+  <nav class="oculto"> <!-- Menú lateral; empieza escondido -->
+    <img src="assets/image/logo-circulo.png" alt="Logo YONEX"> <!-- Logo del gato -->
+    <h2>YONEX</h2> <!-- Nombre -->
+    <p id="usuario"><img src="assets/image/usuario-azul.png" alt=""><b>Yasuo Reyes</b><span>Operario</span></p> <!-- Usuario que inició sesión -->
+    <a href="dashboard.html" class="activo"><img src="assets/image/inicio.svg" alt="">Inicio</a> <!-- Enlace a Inicio (resaltado) -->
+    <a href="asistencia.html"><img src="assets/image/reloj.svg" alt="">Asistencias</a> <!-- Enlace a Asistencias -->
+    <a href="#" id="reporte"><img src="assets/image/reporte.svg" alt="">Reporte de asistencias</a> <!-- Muestra las asistencias guardadas -->
+    <hr> <!-- Línea separadora -->
+    <a href="login.html" id="salir"><img src="assets/image/salir.svg" alt="">Cerrar sesion</a> <!-- Cierra la sesión y vuelve al login -->
+  </nav>
+
+  <script src="assets/js/menu.js"></script> <!-- JavaScript del menú (se comparte con asistencia.html) -->
+  <script src="assets/js/dashboard.js"></script> <!-- JavaScript de esta pantalla -->
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* ===== CELULAR (diseño base) ===== */
+
+body { margin: 0; } /* Quita el margen de 8px que trae el navegador (evita una barra de scroll de más) */
+
+main { /* Pantalla completa con el fondo degradado */
+  min-height: 100vh; /* Alto mínimo = todo el alto de la ventana (100vh) */
+  background: url(../image/fondo.jpg) center / cover; /* Imagen de fondo centrada que cubre toda la pantalla */
+  display: flex; /* Activa Flexbox: acomoda a los hijos (logo y tarjeta) */
+  flex-direction: column; /* Los hijos se ponen uno debajo del otro */
+  justify-content: center; /* Los centra de arriba a abajo */
+  align-items: center; /* Los centra de izquierda a derecha */
+  gap: 20px; /* Espacio entre el logo y la tarjeta */
+  font-family: Arial, sans-serif; /* Tipo de letra de toda la página */
+}
+
+header { text-align: center; color: #ffffff; } /* Logo y nombre: centrados y en blanco */
+header img { width: 90px; } /* Tamaño del logo pequeño */
+h2 { margin: 5px 0 0; font-size: 28px; } /* margin: quita espacios; font-size: tamaño de la letra */
+
+section { /* Tarjeta lila */
+  width: 85%; /* Ocupa el 85% del ancho de la pantalla */
+  max-width: 330px; /* Pero nunca más de 330px */
+  background: #c3bbdf; /* Color lila */
+  border-radius: 30px; /* Esquinas redondeadas */
+  overflow: hidden; /* Recorta lo que sobresalga de las esquinas redondeadas */
+}
+
+form { /* Formulario: los campos van uno debajo del otro */
+  display: flex; /* Activa Flexbox */
+  flex-direction: column; /* Uno debajo del otro */
+  gap: 15px; /* Espacio entre campos */
+  padding: 30px 25px; /* Espacio interior: arriba y abajo 30px, a los lados 25px */
+}
+
+h1 { margin: 0; text-align: center; font-family: Georgia, serif; font-size: 24px; } /* Título centrado con letra de serif */
+p, label { margin: 0; font-size: 14px; } /* Textos pequeños sin margen */
+
+input { /* Campos de texto: en celular son grises y muy redondos */
+  padding: 10px 15px; /* Espacio interior */
+  border: 0; /* Sin borde */
+  border-radius: 20px; /* Muy redondeado */
+  background: #d9d9d9; /* Gris */
+}
+
+button { /* Botón verde azulado */
+  align-self: center; /* Se centra dentro del formulario */
+  padding: 12px 30px; /* Espacio interior */
+  border: 0; /* Sin borde */
+  border-radius: 8px; /* Esquinas poco redondeadas */
+  background: #7ba9a6; /* Color verde azulado */
+  color: #ffffff; /* Letra blanca */
+  font-weight: bold; /* Letra en negrita */
+}
+
+#mensaje { color: #cc0000; text-align: center; } /* Aviso de error: rojo y centrado */
+
+label, #logoGrande { display: none; } /* display: none = oculto. En celular no se ven estos dos */
+
+
+/* ===== TABLET (desde 700px de ancho) ===== */
+@media (min-width: 700px) { /* Estas reglas solo se aplican si la pantalla mide 700px o más */
+  header { display: none; } /* Ya no se usa el logo pequeño */
+  section { display: flex; width: 80%; max-width: 900px; border-radius: 40px; } /* Logo a la izquierda y formulario a la derecha */
+  #logoGrande { display: block; width: 45%; object-fit: cover; } /* Se muestra el logo grande; cover evita que se deforme */
+  form { flex: 1; justify-content: center; padding: 40px; } /* flex: 1 = el formulario ocupa el espacio que sobra */
+  input { background: #ffffff; border: 1px solid #999999; border-radius: 8px; } /* Campos blancos con borde */
+}
+
+
+/* ===== ESCRITORIO (desde 1100px de ancho) ===== */
+@media (min-width: 1100px) { /* Solo si la pantalla mide 1100px o más */
+  label { display: block; } /* Aparece la etiqueta "Contraseña:" */
+}
